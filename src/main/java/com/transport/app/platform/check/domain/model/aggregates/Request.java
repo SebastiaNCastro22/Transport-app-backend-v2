@@ -2,7 +2,6 @@ package com.transport.app.platform.check.domain.model.aggregates;
 
 import com.transport.app.platform.check.domain.model.commands.CreateRequestCommand;
 import com.transport.app.platform.check.domain.model.valueobjects.RequestStatus;
-import com.transport.app.platform.iam.domain.model.aggregates.Client;
 import com.transport.app.platform.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
 import io.jsonwebtoken.lang.Strings;
 import jakarta.persistence.*;
@@ -11,6 +10,10 @@ import lombok.Getter;
 @Getter
 @Entity
 public class Request extends AuditableAbstractAggregateRoot<Request> {
+
+
+    @Getter
+    @Embedded
 
     private String startLocation;
     private String arrivalPlace;
@@ -28,7 +31,6 @@ public class Request extends AuditableAbstractAggregateRoot<Request> {
         this.offeredPrice = null;
         this.idealTemperature = null;
         this.idealWeight = null;
-        //this.status = null;
         this.descriptionRequest = Strings.EMPTY;
 
     }

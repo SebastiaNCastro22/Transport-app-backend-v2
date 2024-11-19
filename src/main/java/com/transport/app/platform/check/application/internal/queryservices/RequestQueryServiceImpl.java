@@ -26,4 +26,6 @@ public class RequestQueryServiceImpl implements RequestQueryService {
     public List<Request> handle(GetAllRequestsQuery query) {
         return requestRepository.findAll();
     }
+
+
 }

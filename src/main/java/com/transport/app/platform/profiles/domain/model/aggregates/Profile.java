@@ -62,7 +62,13 @@ public class Profile extends AuditableAbstractAggregateRoot<Profile> {
         return email.address();
     }
 
-    public String getCity() { return address; }
+    public String getAddress() { return address; }
+
+    public Date getBirthday() { return birthday; }
+
+    public long getDni() { return dni; }
+
+    public String getPhone() { return phone; }
 
     public Profile updateInformation(String firstName, String lastName, String email, String address, Date birthday, long dni, String phone) {
         this.name = new PersonName(firstName,lastName);
@@ -73,4 +79,5 @@ public class Profile extends AuditableAbstractAggregateRoot<Profile> {
         this.phone = phone;
         return this;
     }
+
 }

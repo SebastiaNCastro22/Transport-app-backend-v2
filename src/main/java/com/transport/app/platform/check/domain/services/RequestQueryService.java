@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface RequestQueryService {
     Optional<Request> handle(GetRequestByIdQuery query);
     List<Request> handle(GetAllRequestsQuery query);
-    //Optional<LearningPathItem> handle(GetLearningPathItemByCourseIdAndTutorialIdQuery query);
 }

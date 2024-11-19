@@ -57,6 +57,7 @@ public class ProfilesController {
                 .toList();
         return ResponseEntity.ok(profileResources);
     }
+
     @PutMapping("/{profileId}")
     public ResponseEntity<ProfileResource> updateProfile(@PathVariable Long profileId, @RequestBody UpdateProfileResource updateProfileResource) {
         var updateCourseCommand = UpdateProfileCommandFromResourceAssembler.toCommandFromResource(profileId, updateProfileResource);

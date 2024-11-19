@@ -25,6 +25,7 @@ public class ShipmentCommandServiceImpl implements ShipmentCommandService {
         this.shipmentRepository = shipmentRepository;
     }
 
+    @Override
     public Long handle(RequestShipmentCommand command) {
         transporterRepository.findByTransporterId(command.transporterId()).map(transporter -> {
             Request request = requestRepository.findById(command.requestId()).orElseThrow(() -> new RequestNotFoundException(command.requestId()));

@@ -6,8 +6,6 @@ import com.transport.app.platform.shared.domain.model.aggregates.AuditableAbstra
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 public class IotProcess extends AuditableAbstractAggregateRoot<IotProcess> {
@@ -16,15 +14,6 @@ public class IotProcess extends AuditableAbstractAggregateRoot<IotProcess> {
     @Column(name = "iot_id")
     private final IotProcessId iotProcessId ;
 
-    @NotBlank
-    @Size(max = 50)
-    @Column(unique = true)
-    private String nameIotDevice;
-
-    @NotBlank
-    @Size(max = 120)
-    private String macAddress;
-
     private double temperature;
     private double weight;
 
@@ -32,10 +21,8 @@ public class IotProcess extends AuditableAbstractAggregateRoot<IotProcess> {
         this.iotProcessId = new IotProcessId();
     }
 
-    public IotProcess(String nameIotDevice, String macAddress, Double temperature, Double weight) {
+    public IotProcess(Double temperature, Double weight) {
         this();
-        this.nameIotDevice = nameIotDevice;
-        this.macAddress = macAddress;
         this.temperature = temperature;
         this.weight = weight;
     }
@@ -65,11 +52,4 @@ public class IotProcess extends AuditableAbstractAggregateRoot<IotProcess> {
         this.weight = newWeight;
     }
 
-    public String getMacAddress() {
-        return macAddress;
-    }
-
-    public String getNameIotDevice() {
-        return nameIotDevice;
-    }
 }

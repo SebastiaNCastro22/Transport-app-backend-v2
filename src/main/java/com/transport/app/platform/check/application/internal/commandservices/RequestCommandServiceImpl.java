@@ -1,7 +1,6 @@
 package com.transport.app.platform.check.application.internal.commandservices;
 
 import com.transport.app.platform.check.application.internal.outboundservices.acl.ExternalIotProcessService;
-import com.transport.app.platform.check.application.internal.outboundservices.acl.ExternalProfileService;
 import com.transport.app.platform.check.domain.model.aggregates.Request;
 import com.transport.app.platform.check.domain.model.commands.CreateRequestCommand;
 import com.transport.app.platform.check.domain.model.commands.UpdateRequestCommand;
@@ -18,7 +17,7 @@ public class RequestCommandServiceImpl implements RequestCommandService {
     private final RequestRepository requestRepository;
     private final ExternalIotProcessService externalIotProcessService;
 
-    public RequestCommandServiceImpl(RequestRepository requestRepository,ExternalIotProcessService externalIotProcessService) {
+    public RequestCommandServiceImpl(RequestRepository requestRepository, ExternalIotProcessService externalIotProcessService) {
         this.requestRepository = requestRepository;
         this.externalIotProcessService = externalIotProcessService;
     }
@@ -34,6 +33,8 @@ public class RequestCommandServiceImpl implements RequestCommandService {
         }
         return request.getId();
     }
+
+
     @Override
     public Optional<Request> handle(UpdateRequestCommand command, GetRequestByIdQuery query) {
 

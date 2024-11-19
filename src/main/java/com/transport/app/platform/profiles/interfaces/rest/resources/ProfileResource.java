@@ -4,4 +4,6 @@ public record ProfileResource(
         Long id,
         String fullName,
         String email,
-        String city) { }
+        String address,
+        String phone,
+        long dni) { }
